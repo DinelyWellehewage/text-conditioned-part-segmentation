@@ -34,3 +34,6 @@ outputs/*
 
 # Environment variables
 .env
+
+
+data
