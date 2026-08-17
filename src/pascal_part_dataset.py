@@ -11,11 +11,15 @@ from pascal_part_metadata import (
     get_query_name,
 )
 
+from torchvision.transforms import functional as TF
+from torchvision.transforms import InterpolationMode
+
 
 class PascalPartDataset(Dataset):
-    def __init__(self, root, split="train"):
+    def __init__(self, root, split="train", image_size=(448, 448)):
         self.root = Path(root)
         self.split = split
+        self.image_size = image_size
 
         self.image_dir = self.root / "images" / split
         self.obj_dir = self.root / "annotations_detectron2_obj" / split
@@ -96,6 +100,28 @@ class PascalPartDataset(Dataset):
         image = torch.from_numpy(image).permute(2, 0, 1).float() / 255.0
         parent_mask = torch.from_numpy(parent_mask)
         part_mask = torch.from_numpy(part_mask)
+
+
+        image = TF.resize(
+            image,
+            self.image_size,
+            interpolation=InterpolationMode.BILINEAR,
+            antialias=True,
+        )
+
+        parent_mask = TF.resize(
+            parent_mask.unsqueeze(0),
+            self.image_size,
+            interpolation=InterpolationMode.NEAREST,
+        ).squeeze(0)
+
+        part_mask = TF.resize(
+            part_mask.unsqueeze(0),
+            self.image_size,
+            interpolation=InterpolationMode.NEAREST,
+        ).squeeze(0)
+
+
 
         query = get_query_name(part_id)
 

@@ -10,7 +10,7 @@ dataset = PascalPartDataset(
 
 loader = DataLoader(
     dataset,
-    batch_size=1,
+    batch_size=4,
     shuffle=True,
     num_workers=0,
 )
