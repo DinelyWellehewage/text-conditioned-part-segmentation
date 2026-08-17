@@ -5,3 +5,4 @@ pillow
 matplotlib
 tqdm
 gdown
+open_clip_torch
