@@ -5,7 +5,7 @@ import torch
 from PIL import Image
 from torch.utils.data import Dataset
 
-from src.pascal_part_metadata import (
+from pascal_part_metadata import (
     CLASS_NAMES,
     OBJ_CLASS_NAMES,
     get_query_name,
