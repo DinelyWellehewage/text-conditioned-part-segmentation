@@ -1,6 +1,6 @@
 from torch.utils.data import DataLoader
 
-from pascal_part_dataset import PascalPartDataset
+from .pascal_part_dataset import PascalPartDataset
 
 
 dataset = PascalPartDataset(
