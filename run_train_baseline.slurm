@@ -14,6 +14,7 @@ cd "$HOME/text-conditioned-part-segmentation"
 
 mkdir -p logs
 
+module load python/3.12-base
 source .venv/bin/activate
 
 export PASCAL_PART_ROOT=/home/vault/v123be/v123be51/text-conditioned-part-segmentation/data/PascalPart116
