@@ -12,9 +12,14 @@ from .dinov2_preprocess import normalize_for_dinov2
 from .losses import BCEDiceLoss
 from .metrics import binary_dice_score, binary_iou
 from .pascal_part_dataset import PascalPartDataset
+import os
 
 
-DATA_ROOT = "data/PascalPart116"
+# DATA_ROOT = "data/PascalPart116"
+DATA_ROOT = os.getenv(
+    "PASCAL_PART_ROOT",
+    "data/PascalPart116",
+)
 
 IMAGE_SIZE = (448, 448)
 
