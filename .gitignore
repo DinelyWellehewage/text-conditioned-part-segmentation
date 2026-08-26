@@ -37,3 +37,6 @@ outputs/*
 
 
 data
+
+
+checkpoints/
