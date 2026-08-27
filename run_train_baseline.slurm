@@ -18,6 +18,8 @@ module load python/3.12-base
 source .venv/bin/activate
 
 export PASCAL_PART_ROOT=/home/vault/v123be/v123be51/text-conditioned-part-segmentation/data/PascalPart116
+export HF_HOME=/home/vault/v123be/v123be51/huggingface
+export HF_HUB_OFFLINE=1
 
 echo "Node:"
 hostname
