@@ -40,3 +40,7 @@ data
 
 
 checkpoints/
+
+
+__pycache__/
+*.pyc
